@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // Incorrectly referencing an element that doesn't exist yet.
+    document.getElementById('myDiv2').innerHTML = "This text won't show.";
+
+    // Correct way, using DOMContentLoaded event listener to ensure the DOM is ready.
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('myDiv').innerHTML = "This text will show correctly.";
+    });
+  </script>
+</body>
+</html>
